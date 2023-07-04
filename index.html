@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <!-- leaflet map -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font Awsome -->
+    <script
+      src="https://kit.fontawesome.com/ada9dfd0e0.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- css -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <header>
+      <!-- place navbar here -->
+      <nav class="navbar bg-body-tertiary">
+        <div class="container pt-2">
+          <div>
+            <h3><a class="">weatherApp</a></h3>
+            <h4><a class="dateMain text-light">January 03, 21</a></h4>
+          </div>
+          <div class="d-flex search-input-Div">
+            <div class="input-container">
+              <input type="text" class="search-input" placeholder="" />
+              <button class="searchIcon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- location -->
+      <section class="topSection">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col col-lg-6 col-12 DailyWeather">
+              <div class="countryDiv d-flex">
+                <div class="countryIcon fs-1">
+                  <i class="fa-solid fa-sun"></i>
+                </div>
+                <div class="countryNames">
+                  <h2 class="countryName"></h2>
+                  <h4 class="cityName"></h4>
+                </div>
+                <div class="tempDiv">
+                  <h2 class="temp"></h2>
+                  <h4 class="tempDescription">Temprature</h4>
+                </div>
+                <div class="HumidityDiv">
+                  <h2 class="Humidity"></h2>
+                  <h4 class="HumidityDescription">Humidity</h4>
+                </div>
+                <div class="windSpeedDiv">
+                  <h2 class="windSpeed"></h2>
+                  <h4 class="windSpeedDescription">Windspeed</h4>
+                </div>
+              </div>
+              <div class="WeatherDailyList"></div>
+            </div>
+            <div class="col col-lg-5 col-12">
+              <div class="weatherMap"></div>
+            </div>
+          </div>
+        </div>
+        <img src="" alt="" />
+      </section>
+      <section class="weeklyCharts">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col col-lg-6">
+              <figure class="highcharts-figure humidityChart">
+                <div id="humidity"></div>
+              </figure>
+            </div>
+            <!-- <div class="col col-lg-6">
+              <figure class="highcharts-figure">
+                <div id="pressure"></div>
+              </figure>
+            </div> -->
+            <div class="col col-lg-6">
+              <figure class="highcharts-figure">
+                <div id="temprature"></div>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <!-- place footer here -->
+    </footer>
+    <!-- HighgGraph -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- leaflet map -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <script src=""></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <!-- js -->
+    <script src="./index.js"></script>
+  </body>
+</html>
