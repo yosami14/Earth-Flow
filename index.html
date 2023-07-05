@@ -41,10 +41,16 @@
     <header>
       <!-- place navbar here -->
       <nav class="navbar bg-body-tertiary">
-        <div class="container pt-2">
-          <div>
-            <h3><a class="">weatherApp</a></h3>
-            <h4><a class="dateMain text-light">January 03, 21</a></h4>
+        <div class="container-fluid nav">
+          <div class="d-flex brandName">
+            <div id="logo">
+              <img src="./img/planet-earth.png" alt="" srcset="" />
+            </div>
+
+            <div class="brandFrontName">
+              <h3><a class="">Earth Flow</a></h3>
+              <h4><a class="dateMain text-light"></a></h4>
+            </div>
           </div>
           <div class="d-flex search-input-Div">
             <div class="input-container">
@@ -62,11 +68,10 @@
       <section class="topSection">
         <div class="container-fluid">
           <div class="row">
+            <h2>Today OverViews</h2>
             <div class="col col-lg-6 col-12 DailyWeather">
               <div class="countryDiv d-flex">
-                <div class="countryIcon fs-1">
-                  <i class="fa-solid fa-sun"></i>
-                </div>
+                <div class="countryIcon"></div>
                 <div class="countryNames">
                   <h2 class="countryName"></h2>
                   <h4 class="cityName"></h4>
@@ -86,7 +91,7 @@
               </div>
               <div class="WeatherDailyList"></div>
             </div>
-            <div class="col col-lg-5 col-12">
+            <div class="col col-lg-6 col-12 weatherMapContainer">
               <div class="weatherMap"></div>
             </div>
           </div>
@@ -96,6 +101,10 @@
       <section class="weeklyCharts">
         <div class="container-fluid">
           <div class="row">
+            <div class="d-flex">
+              <h3>Weekly OverViews</h3>
+              <a href="#" class="text-secondary"> More</a>
+            </div>
             <div class="col col-lg-6">
               <figure class="highcharts-figure humidityChart">
                 <div id="humidity"></div>
