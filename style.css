@@ -10,7 +10,7 @@
   --transition: all 0.3s linear;
   --spacing: 0.15rem;
   --radius: 0.5rem;
-  --container-padding: 2% 5% 5%;
+  --container-padding: 2% 3% 2%;
 }
 
 body {
@@ -45,7 +45,7 @@ a {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: bolder;
 }
 
@@ -74,7 +74,15 @@ p {
 
 /* Nav bar */
 nav {
-  border-bottom: 2px solid #3e61d0;
+  /* border-bottom: 2px solid #3e61d0; */
+}
+.nav {
+  padding: 0.5% 3% 0.5%;
+}
+
+#logo {
+  max-width: 13%;
+  margin-right: 2%;
 }
 
 .search-input-Div {
@@ -115,9 +123,8 @@ nav {
 
 /* Location */
 .topSection {
-  margin-top: 5%;
+  padding: var(--container-padding);
 }
-
 .DailyWeather {
   background: rgba(255, 255, 255, 0.4);
   border-radius: 25px;
@@ -131,12 +138,25 @@ nav {
 }
 
 /* weather list */
+.countryIcon {
+  width: 13%;
+  height: 15%;
+}
+.countryIcon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+}
+
+.weeklyCharts {
+  padding: var(--container-padding);
+}
 .WeatherDailyList {
   overflow-x: auto;
   display: flex;
   flex-wrap: nowrap;
-  flex-wrap: nowrap;
 }
+
 .WeatherDailyList::-webkit-scrollbar {
   color: transparent;
   font-size: 5px;
@@ -145,7 +165,7 @@ nav {
 .weatherList {
   background: var(--clr-grey-5);
   width: fit-content;
-  min-width: 7%;
+  min-width: 8%;
   padding: 15px;
   margin-bottom: 2%;
   border-radius: 15px;
@@ -155,10 +175,14 @@ nav {
 .weatherList span {
   display: block;
 }
+.weatherList .weatherIcon {
+  width: 100%;
+}
 
 .weatherMap {
-  width: 100%; /* Set the desired width */
-  height: 100%; /* Set the desired height */
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
 }
 
 /* HighCharts */
@@ -203,4 +227,48 @@ nav {
 
 .highcharts-data-table tr:hover {
   background: #f1f7ff;
+}
+
+@media (max-width: 600px) {
+  img {
+    object-fit: cover;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: bolder;
+  }
+
+  h3 {
+    font-weight: bolder;
+    font-size: 1rem;
+  }
+
+  h4 {
+    font-size: 0.5rem;
+  }
+  .DailyWeather h2 {
+    font-size: 1rem;
+  }
+
+  .DailyWeather h4 {
+    font-size: 0.4rem;
+    font-weight: bolder;
+  }
+  .countryDiv {
+    padding: 4% 2% 4%;
+  }
+  .weatherList {
+    min-width: 15%;
+  }
+
+  .brandName {
+    text-align: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
 }

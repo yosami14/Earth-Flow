@@ -61,6 +61,7 @@ const weatherData = (data) => {
       windArray.push(wind);
       iconArray.push(icons);
   }
+  
 
   createMap(xAxis,yAxis)
   createWeatherList(iconArray,tempArray,humidityArray,windArray,startDate,data)
@@ -83,6 +84,8 @@ const createPressureChart = (allDataValues,date) => {
 //   chartCreator("temprature", "column", "Average Weekly Temprature", " ", "datetime", "Temprature °C", "°C", 3, date, "temp", allDataValues, '#A01E5F');
 // };
 
+
+// MAP CREATION USING leaflet map
 let mymap; 
 const createMap = (xAxis, yAxis) => {
   // Check if map instance exists
@@ -104,6 +107,8 @@ const createMap = (xAxis, yAxis) => {
 
 const createWeatherList = (iconArray, tempArray, humidityArray, windArray, startDate, data) => {
   const listOfWeatherData = data.list;
+  const flag = data.city.country.toLowerCase();
+  $('.countryIcon').html(`<img src="http://openweathermap.org/images/flags/${flag}.png">`)
   $('.countryName').text(data.city.country);
   $('.cityName').text(data.city.name);
   $('.temp').text(tempArray[0]);
@@ -120,8 +125,9 @@ const createWeatherList = (iconArray, tempArray, humidityArray, windArray, start
     let dateSpan = $('<span>').addClass("dateSpan").text(date);
     let weatherIcon = $('<span>').html(`<img src="https://openweathermap.org/img/wn/${iconArray[i]}@2x.png" alt='${iconArray[i]}'>`)
       .addClass('weatherIcon');
+    let tempSpan = $('<span>').addClass("tempSpan").text(tempArray[i].toFixed(1));
 
-    weatherList.append(dateSpan, weatherIcon);
+    weatherList.append(dateSpan, weatherIcon,tempSpan);
     WeatherDailyList.append(weatherList);
   }
 }
@@ -223,5 +229,18 @@ const fixDateInterval = (date) => {
   const newDateTime = Date.UTC(year, month - 1, day, hour, min, sec);
   return newDateTime;
 };
+const mainDate = () =>{
+var currentDate = new Date();
+var monthNames = [
+  "January", "February", "March", "April", "May", "June", 
+  "July", "August", "September", "October", "November", "December"
+];
+var month = monthNames[currentDate.getMonth()];
+var day = ("0" + currentDate.getDate()).slice(-2);
+var year = currentDate.getFullYear().toString().slice(-2);
+var formattedDate = month + " " + day + ", " + year;
 
+$('.dateMain').text(formattedDate);
+}
+mainDate();
 
