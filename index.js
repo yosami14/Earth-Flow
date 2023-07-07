@@ -42,23 +42,26 @@ const weatherData = (data) => {
   const tempMaxArray = [];
   const tempMinArray = [];
   const windArray = [];
+  const pressureArray = [];
   const iconArray = [];
   const xAxis=data.city.coord.lat;
   const yAxis=data.city.coord.lon;
   for (const item of listOfWeatherData) {
+      //Data path
       const temp = item.main.temp;
       const humidity = item.main.humidity;
       const wind = item.wind.speed;
       const icons = item.weather[0].icon;
       const maxTemp = item.main.temp_max;
       const minTemp = item.main.temp_min;
-      
-
+      const pressure = item.main.pressure;
+      //pushing to array container;
       humidityArray.push(humidity);
       tempArray.push(temp);
       tempMaxArray.push(maxTemp);
       tempMinArray.push(minTemp);
       windArray.push(wind);
+      pressureArray.push(pressure);
       iconArray.push(icons);
   }
   
@@ -66,8 +69,9 @@ const weatherData = (data) => {
   createMap(xAxis,yAxis)
   createWeatherList(iconArray,tempArray,humidityArray,windArray,startDate,data)
   createHumidityChart(humidityArray, startDate);
-  createPressureChart(tempArray, startDate);
-  // createTempChart(tempArray, tempMaxArray,tempMinArray,startDate);
+  createPressureChart(pressureArray, startDate);
+  createTempChart(tempArray,startDate);
+  createOverAllChart(tempArray, pressureArray,humidityArray,startDate);
 };
 
 
@@ -77,12 +81,16 @@ const createHumidityChart = (allDataValues,date) => {
 };
 
 const createPressureChart = (allDataValues,date) => {
-  chartCreator("temprature", "column", "Average Weekly Temprature", " ", "datetime", "Temprature °C", "°C", 3, date, "temp", allDataValues, '#A01E5F');
+  chartCreator("pressure", "areaspline", "Average Weekly pressure", " ", "datetime", "pressure hPa", "hPa", 3, date, "pressure", allDataValues, '#800000');
 };
 
-// const createTempChart = (tempArray, tempMaxArray,tempMinArray,startDate) => {
-//   chartCreator("temprature", "column", "Average Weekly Temprature", " ", "datetime", "Temprature °C", "°C", 3, date, "temp", allDataValues, '#A01E5F');
-// };
+ const createTempChart = (allDataValues,date) =>{
+  chartCreator("temprature", "areaspline", "Average Weekly Temprature", " ", "datetime", "Temprature °C", "°C", 3, date, "Temprature", allDataValues, '#A01E5F');
+ }
+
+const createOverAllChart = (tempArray, pressureArray,humidityArray,date) => {
+  chartCreator("overViewAll", "spline", "Weekly OverView", "", "datetime", "Over All Chart", "", 3, date, "Over All", tempArray, '','Pressure',pressureArray,'Humidity',humidityArray);
+};
 
 
 // MAP CREATION USING leaflet map
@@ -101,10 +109,7 @@ const createMap = (xAxis, yAxis) => {
   }).addTo(mymap);
 }
 
-
-
-
-
+//Create weather list daily
 const createWeatherList = (iconArray, tempArray, humidityArray, windArray, startDate, data) => {
   const listOfWeatherData = data.list;
   const flag = data.city.country.toLowerCase();
@@ -132,16 +137,13 @@ const createWeatherList = (iconArray, tempArray, humidityArray, windArray, start
   }
 }
 
-
-
-
-
-const chartCreator = (where, type, titleText, subtitleText, xType, Ytitle, tooltip, pointInterval, pointIntervalStart, seriesName, seriesData, color) => {
+//Chart Creator
+const chartCreator = (where, type, titleText, subtitleText, xType, Ytitle, tooltip, pointInterval, pointIntervalStart, seriesName, seriesData, color,seriesName2,seriesData2,seriesName3,seriesData3) => {
   Highcharts.chart(where, {
     chart: {
       type: type,
       scrollablePlotArea: {
-        minWidth: 600,
+        minWidth: 400,
         scrollPositionX: 1
       },
       backgroundColor: '#0d121c',
@@ -206,6 +208,15 @@ const chartCreator = (where, type, titleText, subtitleText, xType, Ytitle, toolt
     series: [{
       name: seriesName,
       data: seriesData,
+      color: color
+    },
+  {
+      name: seriesName2,
+      data: seriesData2,
+      color: color
+    },{
+      name: seriesName3,
+      data: seriesData3,
       color: color
     }],
     navigation: {

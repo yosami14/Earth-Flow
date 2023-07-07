@@ -73,9 +73,7 @@ p {
 }
 
 /* Nav bar */
-nav {
-  /* border-bottom: 2px solid #3e61d0; */
-}
+
 .nav {
   padding: 0.5% 3% 0.5%;
 }
@@ -251,6 +249,7 @@ nav {
   h4 {
     font-size: 0.5rem;
   }
+
   .DailyWeather h2 {
     font-size: 1rem;
   }
@@ -259,9 +258,11 @@ nav {
     font-size: 0.4rem;
     font-weight: bolder;
   }
+
   .countryDiv {
     padding: 4% 2% 4%;
   }
+
   .weatherList {
     min-width: 15%;
   }
@@ -270,5 +271,12 @@ nav {
     text-align: center;
     align-items: center;
     margin-bottom: 10px;
+  }
+
+  .weatherMap {
+    width: 100%;
+    height: 200px;
+    border-radius: 25px;
+    margin-top: 25px;
   }
 }
