@@ -60,9 +60,6 @@ The folder structure of the repository is as follows:
 - `Highcharts/`: A folder that contains the Highcharts library files for creating charts.
 - `Leaflet/`: A folder that contains the Leaflet library files for displaying the map.
 
-## License
-
-The Earth Flow Weather App is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Acknowledgements
 
