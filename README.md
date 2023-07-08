@@ -57,8 +57,6 @@ The folder structure of the repository is as follows:
 - `style.css`: The CSS file that defines the styles for the web page.
 - `index.js`: The JavaScript file that contains the logic for fetching weather data, creating charts, and handling user interactions.
 - `img/`: A folder that contains images used in the web page.
-- `Highcharts/`: A folder that contains the Highcharts library files for creating charts.
-- `Leaflet/`: A folder that contains the Leaflet library files for displaying the map.
 
 
 ## Acknowledgements
